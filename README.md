@@ -1,3 +1,5 @@
+Used the OpenWeatherMap API to create a simple weather App.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
