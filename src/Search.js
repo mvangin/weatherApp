@@ -19,7 +19,7 @@ class Search extends React.Component {
     }
 
     handleClick() {
-        fetch(`http://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&units=imperial&APPID=e1b3deaa440b2455c127c030779cf400`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&units=imperial&APPID=e1b3deaa440b2455c127c030779cf400`)
             .then(response => {
                 if (!response.ok) {
                     throw Error(response.statusText)
@@ -31,7 +31,7 @@ class Search extends React.Component {
                 let mainData = jsonData.main
                 console.log(jsonData)
                 let icon = jsonData.weather[0].icon
-                let imgUrlCurrent = `http://openweathermap.org/img/wn/${icon}@2x.png`
+                let imgUrlCurrent = `https://openweathermap.org/img/wn/${icon}@2x.png`
 
                 this.setState({
                     displayCity: `Weather in ${jsonData.name} today: `,
