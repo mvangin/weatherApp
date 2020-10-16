@@ -1,4 +1,6 @@
-Used the OpenWeatherMap API to create a simple weather App.
+Used the OpenWeatherMap API and React.js to create a simple weather App. Search for any city to see objective and "feels like" temperature, and humidity. 
+
+View live version [here](https://mvangin.github.io/weatherApp/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
