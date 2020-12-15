@@ -3,6 +3,7 @@
     margin: 0 auto;
     margin-top: 50px;
     border: 10px solid grey;
+    border-radius: 5px;
     padding: 20px;
 
 }
@@ -19,13 +20,14 @@ input {
 
 button {
     padding: 10px;
-    background: rgb(255, 186, 58);
-    border-color: orange;
+    background: rgb(218, 216, 216);
+    border: 1px solid rgb(218, 216, 216);
+    border-radius: 5px ;
 }
 
 ul {
-    border-top: 4px solid green;
-    border-bottom: 4px solid green;
+    border-top: 4px solid rgb(255, 186, 58);
+    border-bottom: 4px solid rgb(255, 186, 58);
     padding: 10px;
     margin: 0 auto;
     margin-left: -10px;

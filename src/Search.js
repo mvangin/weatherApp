@@ -88,7 +88,7 @@ class Search extends React.Component {
                 </div>
 
                 <div id="searchBox">
-                    <input type="text" name="city" placeholder="Please Enter City" value={this.value} onChange={this.handleChange} />
+                    <input type="text" name="city" placeholder="City Name" value={this.value} onChange={this.handleChange} />
                     <button type="submit" onClick={this.handleClick}> Search Weather</button>
                 </div>
 
