@@ -6,7 +6,7 @@ class Search extends React.Component {
         super()
         this.state = {
             city: "",
-            displayCity: "Please Enter A City",
+            displayCity: "Enter A City",
             temperature: "",
             humidity: "",
             conditions: "",

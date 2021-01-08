@@ -3,7 +3,7 @@
     margin: 0 auto;
     margin-top: 50px;
     border: 10px solid grey;
-    border-radius: 5px;
+    border-radius: 100px;
     padding: 20px;
 
 }
@@ -20,6 +20,7 @@ input {
 
 button {
     padding: 10px;
+    margin: 10px;
     background: rgb(218, 216, 216);
     border: 1px solid rgb(218, 216, 216);
     border-radius: 5px ;
