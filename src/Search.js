@@ -6,7 +6,7 @@ class Search extends React.Component {
         super()
         this.state = {
             city: "",
-            displayCity: "Enter A City",
+            zipCode: "Enter Zip Code (United States)",
             temperature: "",
             humidity: "",
             conditions: "",
@@ -19,8 +19,9 @@ class Search extends React.Component {
     }
 
     handleClick() {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&units=imperial&APPID=e1b3deaa440b2455c127c030779cf400`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${this.state.city},us&units=imperial&APPID=e1b3deaa440b2455c127c030779cf400`)
             .then(response => {
+                console.log(response)
                 if (!response.ok) {
                     throw Error(response.statusText)
                 } else {
@@ -34,7 +35,7 @@ class Search extends React.Component {
                 let imgUrlCurrent = `https://openweathermap.org/img/wn/${icon}@2x.png`
 
                 this.setState({
-                    displayCity: `Weather in ${jsonData.name} today: `,
+                    zipCode: `Current Weather in ${jsonData.name}`,
                     temperature: `${mainData.temp}°F`,
                     feelsLike: `${mainData.feels_like}°F`,
                     humidity: ` ${mainData.humidity}%`,
@@ -47,7 +48,7 @@ class Search extends React.Component {
             .catch(error => {
                 console.log(error)
                 this.setState({
-                    displayCity: "City Not Found",
+                    zipCode: "City Not Found",
                     temperature: "",
                     feelsLike: "",
                     humidity: "",
@@ -71,11 +72,11 @@ class Search extends React.Component {
                 <div id="weatherData">
 
                     <div id="cityName">
-                        {this.state.displayCity}
+                        {this.state.zipCode}
                     </div>
 
                     <div id="weatherIcon">
-                        <img src={this.state.imgUrl}/>
+                        <img src={this.state.imgUrl} alt="weather"/>
                         <p> {this.state.conditions} </p>
                     </div>
 
@@ -88,7 +89,7 @@ class Search extends React.Component {
                 </div>
 
                 <div id="searchBox">
-                    <input type="text" name="city" placeholder="City Name" value={this.value} onChange={this.handleChange} />
+                    <input type="text" name="city" placeholder="Zip Code" value={this.value} onChange={this.handleChange} />
                     <button type="submit" onClick={this.handleClick}> Search Weather</button>
                 </div>
 
