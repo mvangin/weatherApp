@@ -15,6 +15,8 @@ function Homepage() {
     const [error, setError] = useState(null);
     const [tennisTags, setTennisTags] = useState([]);
     const [weekDays, setWeekDays] = useState([]);
+    const [firstLoad, setFirstLoad] = useState(true);
+    const [loading, setLoading] = useState(false)
 
 
     useEffect(() => {
@@ -24,7 +26,7 @@ function Homepage() {
         }))
 
         function weatherWeekCalc(todayIndex) {
-            const sevenDayForecast= ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+            const sevenDayForecast = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
             let index = todayIndex + 1;
             let weatherWeek = ["Today"];
             for (let i = 0; i < 6; i++) {
@@ -36,7 +38,7 @@ function Homepage() {
             }
             return weatherWeek;
         }
-        
+
         var currentDate = new Date();
         let currentDay = currentDate.getDay();
         let weatherWeek = weatherWeekCalc(currentDay)
@@ -59,6 +61,7 @@ function Homepage() {
             })
             .then(jsonData => {
                 setCity(jsonData.name)
+                setFirstLoad(false);
                 setError(null)
                 console.log(jsonData)
                 fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${jsonData.lat}&lon=${jsonData.lon}&units=imperial&appid=f49df63cb1430f4bea6d5db1edba818e`)
@@ -88,15 +91,17 @@ function Homepage() {
     console.log(tennisTags)
 
     return (
-        <div id="appContainer" >
+        <div className={`appContainer ${firstLoad ? "firstLoad" : null}`} >
 
             <div id="weatherData">
-                <div id="cityName">
-                    {error ? error : city}
-                </div>
-                
-                <Search handleClick={handleClick} zipcode={zipcode} setZipcode={setZipcode} />
+                <div className={`${!firstLoad ? "containerBar" : null}`}>
+                    <div id="cityName">
+                        {error ? error : city}
+                    </div>
 
+                    <Search handleClick={handleClick} zipcode={zipcode} setZipcode={setZipcode} />
+
+                </div>
                 {currentWeather && <CurrentWeather currentWeather={currentWeather} />
                 }
 

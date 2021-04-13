@@ -14,7 +14,7 @@ h1 {
     margin-bottom: 10px;
 }
 
-#appContainer {
+.appContainer {
     width: 900px;
     margin: 0 auto;
     margin-top: 50px;
@@ -24,19 +24,35 @@ h1 {
 
 }
 
+.firstLoad {
+    background: rgb(44, 98, 114);
+    color: white; 
+}
+
 #weatherData {
     padding:50px 0px 50px 0px;
 }
 
+.containerBar {
+   margin-top: -75px;
+   margin-bottom:50px;
+    display: flex;
+    justify-content: center;
+    background: rgb(44, 98, 114);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    color: white;
+}
+.containerBar .searchBox {
+    margin: 0px 0px 0px 50px;
+}
 
 input {
     padding: 10px;
 }
 
-#searchBox {
-
+.searchBox {
     text-align: center;
-
 }
 
 button {
@@ -45,7 +61,7 @@ button {
     background: rgb(26, 71, 138);
     color: white;
     font-size: 1rem;
-    border: 1px solid rgb(218, 216, 216);
+    border: 1px solid rgb(26, 71, 138);
     border-radius: 5px ;
 }
 
@@ -140,7 +156,6 @@ li {
 }
 
 #cityName {
-    width: 100%;
     text-align: center;
     font-size: 40px;
     padding-bottom:20px;
