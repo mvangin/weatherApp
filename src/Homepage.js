@@ -94,7 +94,7 @@ function Homepage() {
                 <div id="cityName">
                     {error ? error : city}
                 </div>
-                a
+                
                 <Search handleClick={handleClick} zipcode={zipcode} setZipcode={setZipcode} />
 
                 {currentWeather && <CurrentWeather currentWeather={currentWeather} />
