@@ -48,7 +48,7 @@ function Homepage() {
     function handleClick(zipcode) {
         console.log(city)
         setTennisTags([]);
-        fetch(`http://api.openweathermap.org/geo/1.0/zip?zip=${zipcode},us&${process.env.APP_ID} appid=f49df63cb1430f4bea6d5db1edba818e`)
+        fetch(`http://api.openweathermap.org/geo/1.0/zip?zip=${zipcode},us&appid=f49df63cb1430f4bea6d5db1edba818e`)
             .then(response => {
                 console.log(response)
                 if (!response.ok) {
