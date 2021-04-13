@@ -48,7 +48,7 @@ function Homepage() {
     function handleClick(zipcode) {
         console.log(city)
         setTennisTags([]);
-        fetch(`http://api.openweathermap.org/geo/1.0/zip?zip=${zipcode},us&appid=f49df63cb1430f4bea6d5db1edba818e`)
+        fetch(`http://api.openweathermap.org/geo/1.0/zip?zip=${zipcode},us&appid=${process.env.REACT_APP_APP_ID}`)
             .then(response => {
                 console.log(response)
                 if (!response.ok) {
@@ -61,7 +61,7 @@ function Homepage() {
                 setCity(jsonData.name)
                 setError(null)
                 console.log(jsonData)
-                fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${jsonData.lat}&lon=${jsonData.lon}&units=imperial&appid=f49df63cb1430f4bea6d5db1edba818e`)
+                fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${jsonData.lat}&lon=${jsonData.lon}&units=imperial&appid=${process.env.REACT_APP_APP_ID}`)
                     .then(response => {
                         console.log(response)
                         if (!response.ok) {
