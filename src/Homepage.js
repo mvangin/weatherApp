@@ -5,18 +5,17 @@ import WeekDays from "./WeekDays"
 import CurrentWeather from "./CurrentWeather"
 import Search from "./Search"
 import parseWeather from "./parseWeather"
-
+import tennisBall from "./assets/tennisBall.png"
 function Homepage() {
 
     const [dailyWeather, setDailyWeather] = useState(null);
     const [currentWeather, setCurrentWeather] = useState(null)
     const [zipcode, setZipcode] = useState("");
-    const [city, setCity] = useState("Search Tennis Weather by Zip Code");
+    const [city, setCity] = useState("Search Tennis Weather");
     const [error, setError] = useState(null);
     const [tennisTags, setTennisTags] = useState([]);
     const [weekDays, setWeekDays] = useState([]);
     const [firstLoad, setFirstLoad] = useState(true);
-    const [loading, setLoading] = useState(false)
 
 
     useEffect(() => {
@@ -60,7 +59,7 @@ function Homepage() {
                 }
             })
             .then(jsonData => {
-                setCity(jsonData.name)
+                setCity(`${jsonData.name}, USA`)
                 setFirstLoad(false);
                 setError(null)
                 console.log(jsonData)
@@ -81,7 +80,7 @@ function Homepage() {
                     })
             })
             .catch(error => {
-                setError("An error occured, please try again")
+                setError("An error occured")
                 console.log(error)
             })
     }
@@ -96,7 +95,7 @@ function Homepage() {
             <div id="weatherData">
                 <div className={`${!firstLoad ? "containerBar" : null}`}>
                     <div id="cityName">
-                        {error ? error : city}
+                    <img className="tennisBall" src={tennisBall}></img> {error ? error : city} 
                     </div>
 
                     <Search handleClick={handleClick} zipcode={zipcode} setZipcode={setZipcode} />
