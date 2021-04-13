@@ -6,6 +6,7 @@ import CurrentWeather from "./CurrentWeather"
 import Search from "./Search"
 import parseWeather from "./parseWeather"
 import tennisBall from "./assets/tennisBall.png"
+
 function Homepage() {
 
     const [dailyWeather, setDailyWeather] = useState(null);
@@ -49,6 +50,7 @@ function Homepage() {
     function handleClick(zipcode) {
         console.log(city)
         setTennisTags([]);
+        setCurrentWeather(null);
         fetch(`https://api.openweathermap.org/geo/1.0/zip?zip=${zipcode},us&appid=f49df63cb1430f4bea6d5db1edba818e`)
             .then(response => {
                 console.log(response)
