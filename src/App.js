@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import Search from "./Search"
+import Homepage from "./Homepage"
 
 function App() {
   return (
     <div> 
-        <Search /> 
+        <Homepage /> 
     </div>
   );
 }

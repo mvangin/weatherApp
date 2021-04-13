@@ -1,0 +1,160 @@
+*{
+    box-sizing: border-box;
+}
+
+h1 {
+ font-size: 1.3rem;
+}
+
+.title {
+    border-radius: 10px;
+    background: rgb(44, 98, 114);
+    color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+#appContainer {
+    width: 900px;
+    margin: 0 auto;
+    margin-top: 50px;
+    border: 10px solid rgb(44, 98, 114);
+    border-radius: 50px;
+    padding: 20px;
+
+}
+
+#weatherData {
+    padding:50px 0px 50px 0px;
+}
+
+
+input {
+    padding: 10px;
+}
+
+#searchBox {
+
+    text-align: center;
+
+}
+
+button {
+    padding: 10px;
+    margin: 10px;
+    background: rgb(26, 71, 138);
+    color: white;
+    font-size: 1rem;
+    border: 1px solid rgb(218, 216, 216);
+    border-radius: 5px ;
+}
+
+.weatherContainer{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px;
+}
+
+.daysContainer{
+    display: flex;
+    justify-content: space-around;
+}
+
+.day{
+    width: 100px;
+    text-align: center;
+}
+
+
+
+.tagContainer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.tag {
+    width: 100px;
+    text-align: center;
+    margin: 10px 0px;
+    padding: 5px 0px;
+    border-bottom: 1px solid black;
+    line-height: 22px;
+}
+
+.tag_tennisApprove{
+    text-align: center; 
+    width: 100px;
+    margin: 10px 0px;
+    padding: 5px 0px;
+}
+
+.fa-thumbs-up {
+    color: green;
+}
+
+.fa-wind {
+    color: rgb(67, 67, 67);
+}
+
+.fa-temperature-low {
+    color: rgb(99, 192, 250);
+}
+
+.fa-temperature-high{
+    color: red;
+}
+
+.fa-water {
+    color: rgb(235, 143, 45);
+} 
+
+.fa-cloud-rain {
+    color: rgb(13, 79, 193);
+}
+
+.currentWeatherContainer {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.currentWeather {
+    border-top: 4px solid rgb(255, 186, 58);
+    border-bottom: 4px solid rgb(255, 186, 58);
+    padding: 10px;
+    margin: 20px auto;
+    margin-left: -10px;
+    width: 800px;
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+ 
+}
+
+.tennisTagsContainer{
+    display: flex;
+    justify-content: space-around;
+}
+
+li {
+    list-style: none;
+}
+
+#cityName {
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    padding-bottom:20px;
+}
+
+
+#weatherIcon {
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+
+img {
+    margin: -20px;
+    max-width: 150px;
+}
+
