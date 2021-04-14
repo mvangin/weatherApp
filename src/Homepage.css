@@ -77,17 +77,25 @@ button {
     padding-bottom: 50px;
 }
 
+.dayWeatherContainer:hover{
+    cursor: pointer;
+}
+
 .daysContainer{
     display: flex;
     justify-content: space-around;
 }
 
 .day{
-    width: 100px;
     text-align: center;
+    padding: 10px;
 }
 
-
+.day-border {
+    background:  rgb(26, 71, 138, .2); 
+    border-radius: 10px; 
+    height: 100%;
+}
 
 .tagContainer {
     display: flex;

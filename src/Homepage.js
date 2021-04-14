@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react"
 import "./Homepage.css"
-import DailyWeather from "./DailyWeather.js"
 import WeekDays from "./WeekDays"
 import CurrentWeather from "./CurrentWeather"
 import Search from "./Search"
 import parseWeather from "./parseWeather"
 import tennisBall from "./assets/tennisBall.png"
+import Day from "./Day"
+import { v4 as uuidv4 } from 'uuid';
 
 function Homepage() {
 
@@ -17,6 +18,7 @@ function Homepage() {
     const [tennisTags, setTennisTags] = useState([]);
     const [weekDays, setWeekDays] = useState([]);
     const [firstLoad, setFirstLoad] = useState(true);
+    const [currentDay, setCurrentDay] = useState("Today")
 
 
     useEffect(() => {
@@ -26,7 +28,7 @@ function Homepage() {
         }))
 
         function weatherWeekCalc(todayIndex) {
-            const sevenDayForecast = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+            const sevenDayForecast = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
             let index = todayIndex + 1;
             let weatherWeek = ["Today"];
             for (let i = 0; i < 6; i++) {
@@ -77,8 +79,7 @@ function Homepage() {
                     .then(jsonData => {
                         console.log(jsonData)
                         setDailyWeather(jsonData.daily.slice(0, 7));
-                        setCurrentWeather(jsonData.current)
-                        console.log(jsonData.daily)
+                        setCurrentWeather(jsonData.daily[0])
                     })
             })
             .catch(error => {
@@ -94,21 +95,36 @@ function Homepage() {
     return (
         <div className={`appContainer ${firstLoad ? "firstLoad" : null}`} >
 
+            {/* Header component with own state */}
             <div id="weatherData">
                 <div className={`${!firstLoad ? "containerBar" : null}`}>
                     <div id="cityName">
-                    <img className="tennisBall" src={tennisBall}></img> {error ? error : city} 
+                        <img className="tennisBall" src={tennisBall}></img> {error ? error : city}
                     </div>
-
                     <Search handleClick={handleClick} zipcode={zipcode} setZipcode={setZipcode} />
-
                 </div>
-                {currentWeather && <CurrentWeather currentWeather={currentWeather} />
+
+                {
+                    currentWeather && <CurrentWeather currentDay={currentDay} currentWeather={currentWeather} />
                 }
+               
 
                 {dailyWeather && <div className="weatherContainer">
-                    <WeekDays weekDays={weekDays} />
-                    <DailyWeather tennisTags={tennisTags} />
+                    { /*<WeekDays weekDays={weekDays} /> */}
+                    <div className="tagContainer">
+                        {tennisTags.map((tags, index) => (
+                            <Day setCurrentWeather={setCurrentWeather}
+                                key={uuidv4()}
+                                dayWeather={dailyWeather[index]}
+                                setCurrentDay={setCurrentDay}
+                                day={weekDays[index]}
+                                tags={tags}
+                                currentDay={currentDay}
+                            />
+                        )
+                        )}
+                    </div>
+
                 </div>
                 }
             </div>

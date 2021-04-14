@@ -1,7 +1,7 @@
 import React from "react";
 import { v4 as uuidv4 } from 'uuid';
 
-function Day({ tags }) {
+function Day({ tags, dayWeather, setCurrentWeather, setCurrentDay, day, currentDay}) {
     function handleIcon({ cond, stat }) {
         switch (cond) {
             case ("Windy"):
@@ -26,7 +26,7 @@ function Day({ tags }) {
                 </div>
             case ("Rain"):
                 return <div>
-                    <i class="fas fa-cloud-rain"> Rain </i>
+                    <i className="fas fa-cloud-rain"> Precip. </i>
                     <div> {`${stat} %`} </div>
                 </div>
             default:
@@ -34,9 +34,14 @@ function Day({ tags }) {
         }
 
     }
-    console.log(tags)
     return (
-        <div>
+        <div className={`dayWeatherContainer ${day === currentDay ? "day-border" : null}`} 
+            onClick={() => {
+                setCurrentDay(day);
+                setCurrentWeather(dayWeather)
+            }}>
+     
+            <div className="day"> <b> {day}</b> </div>
             {!tags.length && <div className="tag_tennisApprove"> <i className="fas fa-thumbs-up"> </i> Go play Tennis! </div>}
             {tags.map(tag => <div key={uuidv4()} className="day" className="tag">{handleIcon(tag)} </div>)}
         </div>
