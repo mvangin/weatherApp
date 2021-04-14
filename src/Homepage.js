@@ -4,9 +4,9 @@ import WeekDays from "./WeekDays"
 import CurrentWeather from "./CurrentWeather"
 import Search from "./Search"
 import parseWeather from "./parseWeather"
-import tennisBall from "./assets/tennisBall.png"
 import Day from "./Day"
 import { v4 as uuidv4 } from 'uuid';
+import Header from "./Header"
 
 function Homepage() {
 
@@ -95,37 +95,41 @@ function Homepage() {
     return (
         <div className={`appContainer ${firstLoad ? "firstLoad" : null}`} >
 
-            {/* Header component with own state */}
-            <div id="weatherData">
-                <div className={`${!firstLoad ? "containerBar" : null}`}>
-                    <div id="cityName">
-                        <img className="tennisBall" src={tennisBall}></img> {error ? error : city}
-                    </div>
-                    <Search handleClick={handleClick} zipcode={zipcode} setZipcode={setZipcode} />
-                </div>
+            <div className="weatherData">
+                <Header handleClick={handleClick}
+                    zipcode={zipcode}
+                    setZipcode={setZipcode}
+                    error={error}
+                    city={city}
+                    firstLoad={firstLoad}
+                />
 
                 {
-                    currentWeather && <CurrentWeather currentDay={currentDay} currentWeather={currentWeather} />
+                    currentWeather &&
+                    <CurrentWeather
+                        currentDay={currentDay}
+                        currentWeather={currentWeather}
+                    />
                 }
-               
 
-                {dailyWeather && <div className="weatherContainer">
-                    { /*<WeekDays weekDays={weekDays} /> */}
-                    <div className="tagContainer">
-                        {tennisTags.map((tags, index) => (
-                            <Day setCurrentWeather={setCurrentWeather}
-                                key={uuidv4()}
-                                dayWeather={dailyWeather[index]}
-                                setCurrentDay={setCurrentDay}
-                                day={weekDays[index]}
-                                tags={tags}
-                                currentDay={currentDay}
-                            />
-                        )
-                        )}
+
+                {dailyWeather &&
+                    <div className="weatherContainer">
+                        <div className="tagContainer">
+                            {tennisTags.map((tags, index) => (
+                                <Day setCurrentWeather={setCurrentWeather}
+                                    key={uuidv4()}
+                                    dayWeather={dailyWeather[index]}
+                                    setCurrentDay={setCurrentDay}
+                                    day={weekDays[index]}
+                                    tags={tags}
+                                    currentDay={currentDay}
+                                />
+                            ))
+                            }
+                        </div>
+
                     </div>
-
-                </div>
                 }
             </div>
 

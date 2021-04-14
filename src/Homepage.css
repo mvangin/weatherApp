@@ -29,7 +29,7 @@ h1 {
     color: white; 
 }
 
-#weatherData {
+.weatherData {
     padding:50px 0px 50px 0px;
 }
 
