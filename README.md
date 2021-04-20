@@ -6,12 +6,9 @@
 
 ### Key Features
 
-* Used opensource OpenWeatherMap API and Fetch to retrieve realtime weather data.
+* Parses OpenWeatherMap API data with pre-specified parameters to create custom 7-day tennis playability forecast
 
-* Simple front-end UI created using React
-
-* Update page content without reload, error handling
-
+* Created using React with Hooks, Fetch, JSON, and custom CSS
 
 ### Demo
 
