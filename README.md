@@ -10,6 +10,8 @@
 
 * Created using React with Hooks, Fetch, JSON, and custom CSS
 
+* Implemented using modular code and HTTP error handling
+
 ### Demo
 
 View live demo on [Github pages](https://mvangin.github.io/weatherApp/)
